@@ -21,12 +21,12 @@ const AboutSection: React.FC = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <div className="relative w-full max-w-md aspect-square rounded-2xl shadow-lg overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" 
-                alt="Foggy mountain summit representing cloud architecture" 
+                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
+                alt="Cloud computing and software development team working on screens" 
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 flex items-end p-6">
-                <span className="text-white font-medium text-xl">Cloud Architecture & Development</span>
+                <span className="text-white font-medium text-xl">Cloud & DevOps Engineering</span>
               </div>
             </div>
           </div>
