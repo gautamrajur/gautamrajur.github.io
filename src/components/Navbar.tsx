@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
     )}>
       <nav className="flex items-center justify-between max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex items-center">
-          <a href="#" className="text-apple-black font-medium text-xl">Portfolio</a>
+          <a href="#" className="text-apple-black font-medium text-xl">Hello There!</a>
         </div>
         <div className="hidden sm:flex items-center space-x-8">
           <a href="#about" className="text-apple-black hover:text-apple-blue transition-colors">About</a>

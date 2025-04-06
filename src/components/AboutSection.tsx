@@ -19,9 +19,14 @@ const AboutSection: React.FC = () => {
             </p>
           </div>
           <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl shadow-lg overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-apple-blue text-6xl font-bold opacity-10">
-                ABOUT
+            <div className="relative w-full max-w-md aspect-square rounded-2xl shadow-lg overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05" 
+                alt="Foggy mountain summit representing cloud architecture" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 flex items-end p-6">
+                <span className="text-white font-medium text-xl">Cloud Architecture & Development</span>
               </div>
             </div>
           </div>
