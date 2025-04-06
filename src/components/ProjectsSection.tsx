@@ -5,23 +5,23 @@ import { Card, CardContent } from '@/components/ui/card';
 const projects = [
   {
     id: 1,
-    title: 'Minimalist E-commerce',
-    description: 'A clean, modern e-commerce platform with a focus on user experience and simplicity.',
-    category: 'Web Design & Development',
+    title: 'iNoteBook',
+    description: 'A micro-services cloud-based note-taking platform built with React, REST API, and MongoDB using Prisma ORM. Includes Terraform scripts for AWS infrastructure and Prometheus & Grafana for monitoring.',
+    category: 'Full Stack & DevOps',
     imageBg: 'bg-gradient-to-br from-blue-100 to-indigo-50',
   },
   {
     id: 2,
-    title: 'Finance Dashboard',
-    description: 'An intuitive dashboard for tracking personal finances with beautiful data visualizations.',
-    category: 'UI/UX Design',
+    title: 'NeatMeet',
+    description: 'An iOS app developed with Swift, SwiftUI, and Firebase, enabling users to create and RSVP to events in real-time. Optimized Firestore queries with 30% faster data retrieval.',
+    category: 'Mobile Development',
     imageBg: 'bg-gradient-to-br from-green-100 to-emerald-50',
   },
   {
     id: 3,
-    title: 'Health App',
-    description: 'A mobile application designed to help users track their fitness goals and maintain healthy habits.',
-    category: 'Mobile Development',
+    title: 'Image Processing Application',
+    description: 'An MVC-based image processing app with improved processing speed through algorithm upgrades and multi-threading. Created GUI using Swing with Command/Factory patterns.',
+    category: 'Desktop Application',
     imageBg: 'bg-gradient-to-br from-red-100 to-rose-50',
   },
 ];
@@ -33,7 +33,7 @@ const ProjectsSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="section-title mb-4">Selected Projects</h2>
           <p className="description-text mx-auto">
-            A showcase of my recent work spanning various industries and technologies.
+            A showcase of my recent work spanning various technologies and domains.
           </p>
         </div>
         
@@ -53,10 +53,12 @@ const ProjectsSection: React.FC = () => {
                 <h3 className="text-xl font-medium mb-2">{project.title}</h3>
                 <p className="text-muted-foreground">{project.description}</p>
                 <a 
-                  href="#" 
+                  href="https://github.com/gautamrajur" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block mt-4 text-apple-blue hover:underline"
                 >
-                  View Project →
+                  View on GitHub →
                 </a>
               </CardContent>
             </Card>

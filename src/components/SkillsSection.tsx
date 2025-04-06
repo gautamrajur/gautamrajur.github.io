@@ -3,18 +3,32 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 const skills = [
-  { name: 'UI/UX Design', level: 95 },
-  { name: 'Frontend Development', level: 90 },
-  { name: 'React & React Native', level: 85 },
-  { name: 'Backend Development', level: 80 },
-  { name: 'Product Strategy', level: 85 },
-  { name: 'Visual Design', level: 90 },
+  { name: 'Frontend Development', level: 95 },
+  { name: 'Backend Development', level: 90 },
+  { name: 'Cloud & DevOps', level: 90 },
+  { name: 'Mobile Development', level: 85 },
+  { name: 'Database Management', level: 85 },
+  { name: 'Machine Learning / AI', level: 80 },
 ];
 
-const tools = [
-  'Figma', 'Adobe XD', 'Photoshop', 'Illustrator', 
-  'React', 'TypeScript', 'Node.js', 'HTML/CSS',
-  'Tailwind CSS', 'Express', 'MongoDB', 'PostgreSQL'
+const frontendTools = [
+  'React', 'Next.js', 'Angular', 'TypeScript', 'JavaScript',
+  'HTML5', 'CSS3', 'Material-UI', 'Bootstrap', 'Tailwind CSS'
+];
+
+const backendTools = [
+  'Node.js', 'Express.js', 'Spring Boot', 'Java', 'PostgreSQL', 
+  'MongoDB', 'Redis', 'GraphQL', 'SQL', 'Go'
+];
+
+const devopsTools = [
+  'AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 
+  'Jenkins', 'GitHub Actions', 'CI/CD', 'Ansible', 'Kafka'
+];
+
+const aiTools = [
+  'Python', 'NumPy', 'PyTorch', 'Keras', 'Matplotlib',
+  'LangChain', 'Groq', 'RAG'
 ];
 
 const SkillsSection: React.FC = () => {
@@ -24,7 +38,7 @@ const SkillsSection: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="section-title mb-4">Skills & Expertise</h2>
           <p className="description-text mx-auto">
-            My technical skills and areas of expertise in design and development.
+            My technical skills and areas of expertise in software development and cloud technologies.
           </p>
         </div>
         
@@ -51,12 +65,59 @@ const SkillsSection: React.FC = () => {
           
           <div>
             <h3 className="text-2xl font-medium mb-8">Tools & Technologies</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {tools.map((tool, index) => (
+            
+            <h4 className="font-medium text-lg mb-3">Frontend</h4>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-6">
+              {frontendTools.map((tool, index) => (
                 <div 
                   key={index}
                   className={cn(
-                    "bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow",
+                    "bg-white rounded-xl p-2 text-center text-sm shadow-sm hover:shadow-md transition-shadow",
+                    "hover:text-apple-blue cursor-default"
+                  )}
+                >
+                  {tool}
+                </div>
+              ))}
+            </div>
+            
+            <h4 className="font-medium text-lg mb-3">Backend</h4>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-6">
+              {backendTools.map((tool, index) => (
+                <div 
+                  key={index}
+                  className={cn(
+                    "bg-white rounded-xl p-2 text-center text-sm shadow-sm hover:shadow-md transition-shadow",
+                    "hover:text-apple-blue cursor-default"
+                  )}
+                >
+                  {tool}
+                </div>
+              ))}
+            </div>
+            
+            <h4 className="font-medium text-lg mb-3">DevOps & Cloud</h4>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 mb-6">
+              {devopsTools.map((tool, index) => (
+                <div 
+                  key={index}
+                  className={cn(
+                    "bg-white rounded-xl p-2 text-center text-sm shadow-sm hover:shadow-md transition-shadow",
+                    "hover:text-apple-blue cursor-default"
+                  )}
+                >
+                  {tool}
+                </div>
+              ))}
+            </div>
+            
+            <h4 className="font-medium text-lg mb-3">AI & Machine Learning</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+              {aiTools.map((tool, index) => (
+                <div 
+                  key={index}
+                  className={cn(
+                    "bg-white rounded-xl p-2 text-center text-sm shadow-sm hover:shadow-md transition-shadow",
                     "hover:text-apple-blue cursor-default"
                   )}
                 >

@@ -7,19 +7,26 @@ const HeroSection: React.FC = () => {
     <section className="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
       <div className="max-w-6xl mx-auto stagger-animation">
         <h1 className="hero-text opacity-0 animate-stagger-fade-in mb-6">
-          <span className="block mb-2">Design.</span>
-          <span className="block mb-2">Develop.</span>
-          <span className="block">Deliver.</span>
+          <span className="block mb-2">Gautam Raju</span>
+          <span className="block mb-2 text-3xl md:text-4xl text-apple-blue">Software Development Engineer</span>
+          <span className="block text-xl md:text-2xl font-normal text-apple-darkgray">React • NodeJS • Cloud Architecture</span>
         </h1>
         <p className="description-text mx-auto opacity-0 animate-stagger-fade-in mb-8">
-          Crafting exceptional digital experiences with attention to detail and a passion for perfection.
+          Building scalable, high-performance applications with attention to detail and a passion for excellence.
         </p>
-        <div className="opacity-0 animate-stagger-fade-in">
+        <div className="opacity-0 animate-stagger-fade-in flex flex-wrap gap-4 justify-center">
           <Button 
             className="rounded-full px-8 py-6 bg-apple-blue hover:bg-blue-500 text-white transition-colors"
             asChild
           >
             <a href="#projects">View My Work</a>
+          </Button>
+          <Button 
+            className="rounded-full px-8 py-6 bg-white border border-apple-blue text-apple-blue hover:bg-apple-blue/5 transition-colors"
+            asChild
+            variant="outline"
+          >
+            <a href="#contact">Contact Me</a>
           </Button>
         </div>
       </div>

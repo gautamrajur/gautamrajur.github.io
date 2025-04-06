@@ -5,13 +5,14 @@ import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import SkillsSection from '@/components/SkillsSection';
+import ExperienceSection from '@/components/ExperienceSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
   useEffect(() => {
     // Set page title
-    document.title = "Portfolio | Design. Develop. Deliver.";
+    document.title = "Gautam Raju | Software Engineer";
   }, []);
 
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
       <ProjectsSection />
       <SkillsSection />
       <ContactSection />
