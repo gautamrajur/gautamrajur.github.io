@@ -18,7 +18,7 @@ const AboutSection: React.FC = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <div className="relative w-full max-w-md aspect-square rounded-2xl shadow-lg overflow-hidden">
             <img 
-                src="/lovable-uploads/233d7093-ce0d-4f68-9aa1-5bc392553e05.png" 
+                src="./233d7093-ce0d-4f68-9aa1-5bc392553e05.png" 
                 alt="Gautam Raju profile picture" 
                 className="w-full h-full object-cover"
               />
