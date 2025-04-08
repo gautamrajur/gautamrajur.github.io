@@ -1,0 +1,54 @@
+name: Deploy Vite React Portfolio to GitHub Pages
+
+# This workflow can be triggered manually or on push to the main branch
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_message:
+        description: 'Deployment Message'
+        required: false
+        type: string
+  push:
+    branches: [ main ]  # Change to your default branch if different (e.g., master)
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      # No need to modify package.json homepage as Vite uses relative paths
+      # with base: './' in vite.config.ts
+      
+      # Build the Vite app
+      - name: Build Vite app
+        run: npm run build
+      
+      # Deploy to GitHub Pages using gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist  # Vite builds to dist folder by default
+          branch: gh-pages  # The branch the action should deploy to
+          clean: true  # Automatically remove deleted files from the deploy branch
+          
+      # Create a .nojekyll file to prevent GitHub Pages from ignoring files that begin with an underscore
+      - name: Add .nojekyll file
+        run: touch dist/.nojekyll
+        
+      - name: Deployment notification
+        run: |
+          echo "🚀 Vite React portfolio website deployed to GitHub Pages"
+          echo "Message: ${{ github.event.inputs.deploy_message || 'Portfolio website update' }}"
