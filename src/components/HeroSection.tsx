@@ -9,7 +9,7 @@ const HeroSection: React.FC = () => {
         <h1 className="hero-text opacity-0 animate-stagger-fade-in mb-6">
           <span className="block mb-2">Gautam Raju</span>
           <span className="block mb-2 text-3xl md:text-4xl text-apple-blue">Software Development Engineer</span>
-          <span className="block text-xl md:text-2xl font-normal text-apple-darkgray">React • NodeJS • Cloud Architecture</span>
+          <span className="block text-xl md:text-2xl font-normal text-apple-darkgray">DevSecOps • Full-Stack • Cloud Architecture • Mobile Apps</span>
         </h1>
         <p className="description-text mx-auto opacity-0 animate-stagger-fade-in mb-8">
           Building scalable, high-performance applications with attention to detail and a passion for excellence.
