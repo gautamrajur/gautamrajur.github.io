@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar: React.FC = () => {
@@ -63,6 +63,15 @@ const Navbar: React.FC = () => {
           ))}
           <ThemeToggle />
           <a 
+            href="/Gautam_Raju_AI.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-secondary border border-border hover:border-primary hover:text-primary text-sm md:text-base font-medium transition-all"
+          >
+            <FileText size={16} className="md:w-[18px] md:h-[18px]" />
+            Resume
+          </a>
+          <a 
             href="mailto:raju.ga@northeastern.edu"
             className="px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm md:text-base font-medium transition-all shadow-lg shadow-primary/20"
           >
@@ -99,6 +108,16 @@ const Navbar: React.FC = () => {
               {link.label}
             </a>
           ))}
+          <a 
+            href="/Gautam_Raju_AI.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-foreground hover:text-primary hover:bg-secondary/50 transition-colors text-base font-medium py-3 px-3 rounded-lg"
+            onClick={handleNavClick}
+          >
+            <FileText size={18} />
+            Resume
+          </a>
           <a 
             href="mailto:raju.ga@northeastern.edu"
             className="block text-primary text-base font-medium py-3 px-3"

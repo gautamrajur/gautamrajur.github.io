@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ArrowDown, Sparkles } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, Sparkles, FileText } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   return (
@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
             </p>
             
             {/* Social Links */}
-            <div className="flex items-center justify-center md:justify-start gap-3 pt-2">
+            <div className="flex items-center justify-center md:justify-start gap-3 pt-2 flex-wrap">
               <a 
                 href="https://github.com/gautamrajur" 
                 target="_blank" 
@@ -82,6 +82,16 @@ const HeroSection: React.FC = () => {
                 aria-label="Email"
               >
                 <Mail size={18} />
+              </a>
+              <a 
+                href="/Gautam_Raju_AI.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-xs sm:text-sm font-medium transition-all shadow-lg"
+                aria-label="Resume"
+              >
+                <FileText size={14} className="sm:w-4 sm:h-4" />
+                <span>Resume</span>
               </a>
               <a 
                 href="#projects"
