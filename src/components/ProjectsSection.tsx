@@ -60,7 +60,7 @@ const projects = [
     title: 'AI Avatar System',
     subtitle: 'LLM Platform',
     description: 'Modular chat system with 6 personas, session management, and sub-100ms response times.',
-    tech: ['FastAPI', 'Groq', 'Docker', 'Kubernetes'],
+    tech: ['FastAPI', 'Groq', 'Docker', 'K8s'],
     github: 'https://github.com/gautamrajur/ai-avatar-system',
     metrics: [
       { value: '6', label: 'AI Personas' },
@@ -123,7 +123,7 @@ const ProjectsSection: React.FC = () => {
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed mb-6 min-h-[72px]">
                     {project.description}
                   </p>
 
@@ -140,23 +140,25 @@ const ProjectsSection: React.FC = () => {
                     ))}
                   </div>
                   
-                  {/* Tech Stack */}
-                  <div className="mt-auto">
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">Tech Stack</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span 
-                          key={tech}
-                          className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-foreground"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  {/* Tech Stack - Fixed height area */}
+                  <div className="flex-1 flex flex-col justify-end">
+                    <div>
+                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">Tech Stack</p>
+                      <div className="flex flex-wrap gap-2 min-h-[68px]">
+                        {project.tech.map((tech) => (
+                          <span 
+                            key={tech}
+                            className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-foreground h-fit"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* View Link */}
-                  <div className="flex items-center gap-2 mt-6 pt-4 border-t border-border text-muted-foreground group-hover:text-primary transition-colors">
+                  {/* View Link - Always at bottom */}
+                  <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border text-muted-foreground group-hover:text-primary transition-colors">
                     <Github size={16} />
                     <span className="text-sm font-medium">View on GitHub</span>
                     <ExternalLink size={14} className="ml-auto" />
