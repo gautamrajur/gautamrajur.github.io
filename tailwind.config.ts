@@ -13,7 +13,7 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: '1.5rem',
 			screens: {
 				'2xl': '1400px'
 			}
@@ -57,18 +57,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Slate & Sage palette
-				slate: {
-					DEFAULT: '#0f172a',
-					light: '#1e293b',
-					lighter: '#334155',
+				// LinkedIn palette
+				linkedin: {
+					DEFAULT: '#0a66c2',
+					dark: '#004182',
+					light: '#70b5f9',
 				},
-				sage: {
-					DEFAULT: '#22c55e',
-					dark: '#16a34a',
-					light: '#4ade80',
+				dark: {
+					DEFAULT: '#1d2226',
+					light: '#283339',
+					lighter: '#38434f',
 				},
-				cream: '#f8fafc',
+				cream: '#f3f2ef',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
