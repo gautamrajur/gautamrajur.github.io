@@ -51,9 +51,9 @@ const projects = [
     id: 6,
     title: 'GPU Performance Profiler',
     subtitle: 'ML Benchmarking Tool',
-    description: 'Neural network profiling tool with CUDA and PyTorch for memory optimization and architecture benchmarking.',
-    tech: ['CUDA', 'PyTorch', 'Python'],
-    github: 'https://github.com/gautamrajur',
+    description: 'GPU profiling framework for deep learning training optimization with dynamic batch tuning and kernel-level analysis. Achieved 252x throughput improvement.',
+    tech: ['PyTorch', 'CUDA', 'Python', 'Colab'],
+    github: 'https://github.com/gautamrajur/gpu_profiler',
     icon: Cpu,
   },
 ];
