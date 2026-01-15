@@ -85,20 +85,20 @@ const projects = [
 const ProjectsSection: React.FC = () => {
   return (
     <section id="projects" className="section-padding relative overflow-hidden bg-background">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="mb-12">
-          <p className="text-primary font-mono text-sm tracking-wider uppercase mb-3">Projects</p>
-          <h2 className="text-4xl md:text-5xl font-serif text-foreground max-w-2xl leading-tight">
+        <div className="mb-8 md:mb-12">
+          <p className="text-primary font-mono text-sm tracking-wider uppercase mb-2 md:mb-3">Projects</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-foreground max-w-2xl leading-tight">
             Building tools that <span className="italic text-primary">solve real problems</span>
           </h2>
         </div>
 
         {/* Horizontal Scroll Container */}
-        <div className="relative -mx-6 px-6">
+        <div className="relative -mx-4 sm:-mx-6 px-4 sm:px-6">
           <div 
-            className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            className="flex gap-4 md:gap-6 overflow-x-auto pb-4 md:pb-6 snap-x snap-mandatory"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
           >
             {projects.map((project) => (
               <a
@@ -106,36 +106,36 @@ const ProjectsSection: React.FC = () => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-none w-[320px] md:w-[360px] snap-start group"
+                className="flex-none w-[280px] sm:w-[320px] md:w-[360px] snap-start group"
               >
                 {/* Simple Elongated Card */}
-                <div className="h-[480px] p-6 rounded-2xl bg-card border border-border flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5">
+                <div className="h-[420px] sm:h-[450px] md:h-[480px] p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl bg-card border border-border flex flex-col transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5">
                   
                   {/* Number + Subtitle */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-muted-foreground font-mono text-sm">{project.number}.</span>
-                    <span className="text-primary text-sm font-medium">{project.subtitle}</span>
+                  <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
+                    <span className="text-muted-foreground font-mono text-xs md:text-sm">{project.number}.</span>
+                    <span className="text-primary text-xs md:text-sm font-medium">{project.subtitle}</span>
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed mb-6 min-h-[72px]">
+                  <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-4 md:mb-6 min-h-[60px] md:min-h-[72px]">
                     {project.description}
                   </p>
 
                   {/* Impact Metrics - Highlighted */}
-                  <div className="flex gap-3 mb-6">
+                  <div className="flex gap-2 md:gap-3 mb-4 md:mb-6">
                     {project.metrics.map((metric, idx) => (
                       <div 
                         key={idx}
-                        className="flex-1 p-4 rounded-xl bg-primary/5 border border-primary/20"
+                        className="flex-1 p-3 md:p-4 rounded-lg md:rounded-xl bg-primary/5 border border-primary/20"
                       >
-                        <p className="text-primary font-bold text-xl">{metric.value}</p>
-                        <p className="text-muted-foreground text-xs mt-1">{metric.label}</p>
+                        <p className="text-primary font-bold text-lg md:text-xl">{metric.value}</p>
+                        <p className="text-muted-foreground text-[10px] md:text-xs mt-0.5 md:mt-1">{metric.label}</p>
                       </div>
                     ))}
                   </div>
@@ -143,12 +143,12 @@ const ProjectsSection: React.FC = () => {
                   {/* Tech Stack - Fixed height area */}
                   <div className="flex-1 flex flex-col justify-end">
                     <div>
-                      <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3">Tech Stack</p>
-                      <div className="flex flex-wrap gap-2 min-h-[68px]">
+                      <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mb-2 md:mb-3">Tech Stack</p>
+                      <div className="flex flex-wrap gap-1.5 md:gap-2 min-h-[56px] md:min-h-[68px]">
                         {project.tech.map((tech) => (
                           <span 
                             key={tech}
-                            className="px-3 py-1.5 text-sm rounded-lg bg-secondary text-foreground h-fit"
+                            className="px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm rounded-md md:rounded-lg bg-secondary text-foreground h-fit"
                           >
                             {tech}
                           </span>
@@ -158,10 +158,10 @@ const ProjectsSection: React.FC = () => {
                   </div>
 
                   {/* View Link - Always at bottom */}
-                  <div className="flex items-center gap-2 mt-4 pt-4 border-t border-border text-muted-foreground group-hover:text-primary transition-colors">
-                    <Github size={16} />
-                    <span className="text-sm font-medium">View on GitHub</span>
-                    <ExternalLink size={14} className="ml-auto" />
+                  <div className="flex items-center gap-2 mt-3 md:mt-4 pt-3 md:pt-4 border-t border-border text-muted-foreground group-hover:text-primary transition-colors">
+                    <Github size={14} className="md:w-4 md:h-4" />
+                    <span className="text-xs md:text-sm font-medium">View on GitHub</span>
+                    <ExternalLink size={12} className="md:w-[14px] md:h-[14px] ml-auto" />
                   </div>
                 </div>
               </a>
@@ -169,18 +169,18 @@ const ProjectsSection: React.FC = () => {
           </div>
           
           {/* Scroll hint gradient */}
-          <div className="absolute right-0 top-0 bottom-6 w-20 bg-gradient-to-l from-background to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-4 md:bottom-6 w-12 md:w-20 bg-gradient-to-l from-background to-transparent pointer-events-none" />
         </div>
         
         {/* View More */}
-        <div className="mt-10 flex items-center gap-4">
+        <div className="mt-8 md:mt-10 flex items-center gap-3 md:gap-4">
           <a 
             href="https://github.com/gautamrajur"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+            className="inline-flex items-center gap-2 text-primary hover:underline font-medium text-sm md:text-base"
           >
-            <Github size={18} />
+            <Github size={16} className="md:w-[18px] md:h-[18px]" />
             View all projects on GitHub →
           </a>
         </div>

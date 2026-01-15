@@ -144,6 +144,11 @@
 }
 
 /* Carousel styles */
+/* Hide scrollbar for all browsers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 .embla {
   overflow: hidden;
 }
