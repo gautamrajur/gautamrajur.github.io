@@ -25,15 +25,17 @@ const Navbar: React.FC = () => {
     <header className={cn(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
       scrolled 
-        ? 'bg-dark/95 backdrop-blur-sm border-b border-dark-lighter' 
+        ? 'bg-dark/90 backdrop-blur-md border-b border-dark-lighter' 
         : 'bg-transparent'
     )}>
-      <nav className="max-w-5xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        <a href="#" className="text-cream font-semibold hover:text-linkedin transition-colors">
+      <nav className="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#" className="text-cream font-semibold text-lg hover:text-linkedin transition-colors">
           GR
         </a>
         
-        <div className="hidden sm:flex items-center gap-6">
+        {/* Desktop Navigation */}
+        <div className="hidden sm:flex items-center gap-8">
           {navLinks.map((link) => (
             <a 
               key={link.href}
@@ -45,29 +47,31 @@ const Navbar: React.FC = () => {
           ))}
           <a 
             href="mailto:raju.ga@northeastern.edu"
-            className="px-3 py-1.5 rounded-full bg-linkedin text-white text-sm hover:bg-linkedin-dark transition-colors"
+            className="px-4 py-2 rounded-full border border-linkedin text-linkedin hover:bg-linkedin hover:text-white text-sm transition-colors"
           >
             Get in touch
           </a>
         </div>
         
+        {/* Mobile Menu Button */}
         <button 
-          className="sm:hidden text-cream p-1"
+          className="sm:hidden text-cream p-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
       
+      {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div className="sm:hidden bg-dark border-t border-dark-lighter">
-          <div className="px-4 py-3 space-y-3">
+          <div className="px-6 py-4 space-y-4">
             {navLinks.map((link) => (
               <a 
                 key={link.href}
                 href={link.href} 
-                className="block text-muted-foreground hover:text-linkedin transition-colors text-sm"
+                className="block text-muted-foreground hover:text-linkedin transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
@@ -75,7 +79,7 @@ const Navbar: React.FC = () => {
             ))}
             <a 
               href="mailto:raju.ga@northeastern.edu"
-              className="block text-linkedin text-sm"
+              className="block text-linkedin"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get in touch →
