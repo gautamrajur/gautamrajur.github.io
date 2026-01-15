@@ -41,10 +41,10 @@ const projects = [
   {
     id: 5,
     title: 'AI Avatar System',
-    subtitle: 'Computer Vision Project',
-    description: 'Intelligent avatar generation using PyTorch and Computer Vision for real-time facial expression mapping.',
-    tech: ['PyTorch', 'OpenCV', 'Deep Learning'],
-    github: 'https://github.com/gautamrajur',
+    subtitle: 'LLM-Powered Chat System',
+    description: 'Modular LLM-powered chat system with multiple personas built with FastAPI and Groq. Supports session management and real-time conversations.',
+    tech: ['FastAPI', 'Groq', 'Docker', 'K8s'],
+    github: 'https://github.com/gautamrajur/ai-avatar-system',
     icon: Bot,
   },
   {
@@ -64,11 +64,11 @@ const ProjectsSection: React.FC = () => {
       <div className="container-narrow">
         {/* Header */}
         <div className="mb-12">
-          <p className="text-linkedin font-mono text-sm tracking-wider uppercase mb-3">Projects</p>
-          <h2 className="text-3xl md:text-4xl font-serif text-cream mb-4">
+          <p className="text-sage font-mono text-base tracking-wider uppercase mb-3">Projects</p>
+          <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4">
             Selected Work
           </h2>
-          <p className="text-muted-foreground max-w-xl">
+          <p className="text-muted-foreground text-lg max-w-xl">
             Open source projects focused on AI, cloud infrastructure, and developer productivity.
           </p>
         </div>
@@ -81,23 +81,23 @@ const ProjectsSection: React.FC = () => {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 rounded-2xl bg-dark-light border border-dark-lighter hover:border-linkedin/50 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-sage/50 transition-all duration-300 hover:shadow-lg hover:shadow-sage/5"
             >
               <div className="flex items-start justify-between mb-4">
-                <div className="p-3 rounded-xl bg-dark-lighter/50 border border-dark-lighter group-hover:border-linkedin/50 transition-colors">
-                  <project.icon className="w-5 h-5 text-linkedin" />
+                <div className="p-3 rounded-xl bg-secondary border border-border group-hover:border-sage/50 transition-colors">
+                  <project.icon className="w-6 h-6 text-sage" />
                 </div>
-                <Github size={18} className="text-muted-foreground group-hover:text-linkedin transition-colors" />
+                <Github size={20} className="text-muted-foreground group-hover:text-sage transition-colors" />
               </div>
               
-              <p className="text-linkedin font-mono text-xs tracking-wider uppercase mb-1">
+              <p className="text-sage font-mono text-sm tracking-wider uppercase mb-1">
                 {project.subtitle}
               </p>
-              <h3 className="text-lg font-semibold text-cream mb-3 group-hover:text-linkedin transition-colors">
+              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-sage transition-colors">
                 {project.title}
               </h3>
               
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+              <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 {project.description}
               </p>
               
@@ -105,7 +105,7 @@ const ProjectsSection: React.FC = () => {
                 {project.tech.map((tech) => (
                   <span 
                     key={tech}
-                    className="px-2 py-1 text-xs rounded-md bg-dark-lighter/50 text-muted-foreground"
+                    className="px-3 py-1 text-sm rounded-md bg-secondary text-muted-foreground"
                   >
                     {tech}
                   </span>
@@ -121,10 +121,10 @@ const ProjectsSection: React.FC = () => {
             href="https://github.com/gautamrajur"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-linkedin transition-colors"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-sage transition-colors text-lg font-medium"
           >
             <span>View more on GitHub</span>
-            <Github size={16} />
+            <Github size={18} />
           </a>
         </div>
       </div>
