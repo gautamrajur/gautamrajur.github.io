@@ -1,35 +1,70 @@
 import React from 'react';
+
 const AboutSection: React.FC = () => {
-  return <section id="about" className="py-24 px-4 bg-apple-gray">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="order-2 md:order-1">
-            <h2 className="section-title mb-6">About Me</h2>
-            <p className="description-text mb-6">
-              I'm Gautam Raju, a Software Development Engineer at Apple Inc. with expertise in React, NodeJS, and PostgreSQL. With a strong background in both front-end and back-end development, I bring a comprehensive approach to creating efficient, scalable applications.
-            </p>
-            <p className="description-text mb-6">
-              My experience includes building cloud-native applications on AWS, optimizing database performance, implementing secure authentication systems, and automating testing processes. I'm passionate about creating digital experiences that are not only functional but also intuitive and accessible.
-            </p>
-            <p className="description-text">
-              Currently based in Boston, MA, I hold a Master's degree in Computer Science from Northeastern University and am always seeking new challenges in software development and cloud architecture.
-            </p>
+  return (
+    <section id="about" className="section-padding bg-slate-light/30">
+      <div className="container-narrow">
+        <div className="space-y-8">
+          {/* Section Header */}
+          <div>
+            <p className="text-sage font-mono text-sm tracking-wider uppercase mb-3">About</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-cream">
+              Engineer & Builder
+            </h2>
           </div>
-          <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative w-full max-w-md aspect-square rounded-2xl shadow-lg overflow-hidden">
-            <img 
-                src="./233d7093-ce0d-4f68-9aa1-5bc392553e05.png" 
-                alt="Gautam Raju profile picture" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 flex items-end p-6">
-                <span className="text-white font-medium text-xl">
-              </span>
+          
+          {/* About Content */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                I'm a Software Engineer with 3+ years of experience building generative AI solutions 
+                and enterprise systems at <span className="text-cream font-medium">Apple</span> and{' '}
+                <span className="text-cream font-medium">Ancestry</span>. Currently completing my MS in Computer Science 
+                at Northeastern University (graduating April 2026).
+              </p>
+              <p>
+                My focus is on LLMs, prompt engineering, and full-stack development. I've delivered 
+                distributed backend systems handling 100M+ monthly requests, built AI-powered features 
+                improving productivity by 45%, and developed MCP servers for cloud infrastructure analysis.
+              </p>
+            </div>
+            
+            {/* Stats & Tech */}
+            <div className="space-y-6">
+              {/* Education & Quick Stats */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="p-4 rounded-xl bg-slate/50 border border-slate-lighter">
+                  <p className="text-sage font-mono text-xs tracking-wider uppercase mb-2">Education</p>
+                  <p className="text-cream font-medium">MS Computer Science</p>
+                  <p className="text-muted-foreground text-sm">Northeastern University</p>
+                </div>
+                <div className="p-4 rounded-xl bg-slate/50 border border-slate-lighter">
+                  <p className="text-sage font-mono text-xs tracking-wider uppercase mb-2">Experience</p>
+                  <p className="text-cream font-medium">3+ Years</p>
+                  <p className="text-muted-foreground text-sm">Apple, Ancestry</p>
+                </div>
+              </div>
+              
+              {/* Tech Stack Pills */}
+              <div>
+                <p className="text-sage font-mono text-xs tracking-wider uppercase mb-3">Core Stack</p>
+                <div className="flex flex-wrap gap-2">
+                  {['Python', 'Go', 'TypeScript', 'React', 'AWS', 'Kubernetes', 'LLMs', 'RAG'].map((tech) => (
+                    <span 
+                      key={tech}
+                      className="px-3 py-1.5 text-sm rounded-full bg-slate-lighter/30 text-muted-foreground border border-slate-lighter hover:border-sage/50 hover:text-sage transition-colors cursor-default"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default AboutSection;
