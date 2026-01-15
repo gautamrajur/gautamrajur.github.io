@@ -7,7 +7,7 @@ const ContactSection: React.FC = () => {
       <div className="container-narrow">
         <div className="max-w-md mx-auto text-center">
           <p className="text-linkedin font-mono text-xs tracking-wider uppercase mb-2">Contact</p>
-          <h2 className="text-2xl font-bold text-cream mb-3">Let's Connect</h2>
+          <h2 className="text-2xl font-serif text-cream mb-3">Let's Connect</h2>
           <p className="text-sm text-muted-foreground mb-4">
             Open to AI/ML engineering, full-stack development, and cloud architecture opportunities.
           </p>

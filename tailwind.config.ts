@@ -21,6 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Instrument Sans', 'system-ui', 'sans-serif'],
+				serif: ['DM Serif Display', 'Georgia', 'serif'],
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			colors: {

@@ -8,7 +8,7 @@ const AboutSection: React.FC = () => {
           {/* About Text */}
           <div className="flex-1">
             <p className="text-linkedin font-mono text-xs tracking-wider uppercase mb-2">About</p>
-            <h2 className="text-2xl font-bold text-cream mb-4">Engineer & Builder</h2>
+            <h2 className="text-2xl font-serif text-cream mb-4">Engineer & Builder</h2>
             <p className="text-sm text-muted-foreground leading-relaxed mb-3">
               Software Engineer with 3+ years building generative AI solutions at{' '}
               <span className="text-cream">Apple</span> and <span className="text-cream">Ancestry</span>. 

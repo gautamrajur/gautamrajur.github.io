@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
               Software Engineer
             </p>
             
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-cream tracking-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif text-cream">
               Gautam Raju
             </h1>
             

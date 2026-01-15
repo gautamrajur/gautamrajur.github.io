@@ -58,7 +58,7 @@ const ProjectsSection: React.FC = () => {
       <div className="container-narrow">
         <div className="mb-6">
           <p className="text-linkedin font-mono text-xs tracking-wider uppercase mb-2">Projects</p>
-          <h2 className="text-2xl font-bold text-cream">Selected Work</h2>
+          <h2 className="text-2xl font-serif text-cream">Selected Work</h2>
         </div>
 
         {/* Projects Grid */}
