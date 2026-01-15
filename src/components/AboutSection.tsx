@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, GraduationCap, Code2, Zap } from 'lucide-react';
+import { Briefcase, GraduationCap, Code2, Zap, GitBranch } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   const stats = [
@@ -62,6 +62,20 @@ const AboutSection: React.FC = () => {
               </div>
               <p className="text-foreground font-semibold text-base sm:text-lg">MS Computer Science</p>
               <p className="text-muted-foreground text-sm">Northeastern University • 2024-2026</p>
+            </div>
+
+            {/* Open Source Contribution */}
+            <div className="p-4 sm:p-5 rounded-xl bg-card border border-border relative overflow-hidden">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="p-1.5 rounded-lg bg-primary/10 text-primary">
+                  <GitBranch size={16} />
+                </div>
+                <p className="text-primary font-mono text-xs tracking-wider uppercase">Open Source</p>
+              </div>
+              <p className="text-foreground font-semibold text-base sm:text-lg">Runc Contributor</p>
+              <p className="text-muted-foreground text-sm">
+                PR #431: Implement pdeathSignal handling in Runc
+              </p>
             </div>
             
             {/* Tech Stack */}
