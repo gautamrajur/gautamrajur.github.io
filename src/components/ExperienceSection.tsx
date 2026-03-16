@@ -78,43 +78,43 @@ const ExperienceSection: React.FC = () => {
                 background: exp.gradient,
               }}
             >
-              <div className="flex min-h-[260px]">
+              {/* Mobile: logo centered top + content below | Desktop: side by side */}
+              <div className="flex flex-col sm:flex-row">
 
-                {/* ── Left: logo panel — fills edge-to-edge, no padding box ── */}
-                <div className="relative w-56 shrink-0 flex items-center justify-center border-r border-black/10 overflow-hidden">
-                  {/* Number badge — overlaid top-left */}
-                  <div className={`absolute top-5 left-5 w-10 h-10 rounded-full border-2 flex items-center justify-center z-10 ${exp.darkCard ? 'border-white/25 bg-white/10' : 'border-black/20 bg-black/10'}`}>
+                {/* Logo panel — mobile: centered horizontal strip | desktop: left column */}
+                <div className="relative sm:w-56 sm:shrink-0 flex items-center justify-center border-b sm:border-b-0 sm:border-r border-black/10 overflow-hidden py-8 sm:py-0">
+                  {/* Number badge */}
+                  <div className={`absolute top-4 left-4 w-9 h-9 rounded-full border-2 flex items-center justify-center z-10 ${exp.darkCard ? 'border-white/25 bg-white/10' : 'border-black/20 bg-black/10'}`}>
                     <span className={`font-mono text-xs font-bold ${exp.darkCard ? 'text-white' : 'text-[#1C1C1E]'}`}>{exp.number}</span>
                   </div>
 
-                  {/* Logo — large, centered, fills 80% of panel width */}
-                  <div className="w-full px-6 py-14">
-                    <img
-                      src={exp.logo}
-                      alt={exp.company}
-                      className="w-full h-auto object-contain"
-                      onError={(e) => {
-                        const img = e.currentTarget;
-                        img.style.display = 'none';
-                        const fallback = img.nextElementSibling as HTMLElement;
-                        if (fallback) fallback.style.display = 'block';
-                      }}
-                    />
-                    <span className="hidden font-black text-2xl text-[#1C1C1E]">{exp.company}</span>
-                  </div>
+                  {/* Logo — centered on mobile, full-width on desktop */}
+                  <img
+                    src={exp.logo}
+                    alt={exp.company}
+                    className="h-14 sm:h-auto sm:w-full object-contain sm:mx-6 sm:my-14"
+                    onError={(e) => {
+                      const img = e.currentTarget;
+                      img.style.display = 'none';
+                      const fallback = img.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'block';
+                    }}
+                  />
+                  <span className="hidden font-black text-2xl text-[#1C1C1E]">{exp.company}</span>
 
-                  {/* Period — overlaid bottom-left */}
-                  <span className={`absolute bottom-5 left-5 text-xs font-mono z-10 ${exp.darkCard ? 'text-white/60' : 'text-[#1C1C1E]/60'}`}>{exp.period}</span>
+                  {/* Period — bottom-left on desktop only */}
+                  <span className={`hidden sm:block absolute bottom-4 left-5 text-xs font-mono z-10 ${exp.darkCard ? 'text-white/60' : 'text-[#1C1C1E]/60'}`}>{exp.period}</span>
                 </div>
 
-                {/* ── Right: content ── */}
-                <div className="flex-1 p-8 pl-8">
-                  {/* Position */}
-                  <p className={`text-[11px] font-mono font-semibold uppercase tracking-[0.2em] mb-5 ${exp.darkCard ? 'text-white/65' : 'text-[#1C1C1E]/65'}`}>
+                {/* Content */}
+                <div className="flex-1 p-6 sm:p-8">
+                  {/* Period shown inline on mobile */}
+                  <p className={`sm:hidden text-[10px] font-mono mb-2 ${exp.darkCard ? 'text-white/50' : 'text-[#1C1C1E]/45'}`}>{exp.period}</p>
+
+                  <p className={`text-[11px] font-mono font-semibold uppercase tracking-[0.2em] mb-4 ${exp.darkCard ? 'text-white/65' : 'text-[#1C1C1E]/65'}`}>
                     {exp.position}
                   </p>
 
-                  {/* Achievements */}
                   <ul className="space-y-2.5 mb-6">
                     {exp.achievements.map((a, i) => (
                       <li key={i} className={`text-sm leading-relaxed flex gap-2 ${exp.darkCard ? 'text-white/90' : 'text-[#1C1C1E]/85'}`}>
@@ -124,7 +124,6 @@ const ExperienceSection: React.FC = () => {
                     ))}
                   </ul>
 
-                  {/* Tech tags */}
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((t) => (
                       <span key={t} className={`px-3 py-1 text-xs rounded-full font-mono ${exp.darkCard ? 'bg-white/15 text-white/90' : 'bg-black/15 text-[#1C1C1E]'}`}>
@@ -146,25 +145,23 @@ const ExperienceSection: React.FC = () => {
               background: 'linear-gradient(135deg, #4A9E8C 0%, #C87EC8 100%)',
             }}
           >
-            <div className="flex min-h-[200px]">
+            <div className="flex flex-col sm:flex-row">
 
               {/* Left panel */}
-              <div className="flex flex-col items-start justify-between p-8 pr-6 w-56 shrink-0 border-r border-black/10">
-                <div className="w-10 h-10 rounded-full border-2 border-black/20 bg-black/10 flex items-center justify-center text-base">
-                  ★
-                </div>
-                <div className="w-28 h-28 rounded-2xl bg-white/15 flex items-center justify-center p-4">
+              <div className="relative flex items-center justify-center py-8 sm:py-0 sm:flex-col sm:items-start sm:justify-between sm:p-8 sm:pr-6 sm:w-56 sm:shrink-0 border-b sm:border-b-0 sm:border-r border-black/10">
+                <div className="absolute top-4 left-4 sm:static w-9 h-9 rounded-full border-2 border-black/20 bg-black/10 flex items-center justify-center text-sm">★</div>
+                <div className="w-16 h-16 sm:w-28 sm:h-28 rounded-2xl bg-white/15 flex items-center justify-center p-3 sm:p-4">
                   <img
                     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-plain.svg"
                     alt="Kubernetes"
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span className="text-[#1C1C1E]/60 text-xs font-mono">PR #431</span>
+                <span className="hidden sm:block text-[#1C1C1E]/60 text-xs font-mono">PR #431</span>
               </div>
 
               {/* Right content */}
-              <div className="flex-1 p-8 pl-8">
+              <div className="flex-1 p-6 sm:p-8">
                 <div className="inline-block px-3 py-1 bg-black/15 text-[#1C1C1E] text-[10px] font-mono rounded-full mb-4 uppercase tracking-[0.15em]">
                   Open Source Contribution
                 </div>
