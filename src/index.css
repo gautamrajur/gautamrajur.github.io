@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,192 +6,78 @@
 
 @layer base {
   :root {
-    /* Light mode - Slate & Sage */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
+    /* Option C: Deep Charcoal + Warm Cream */
+    --background: 216 4% 20%;         /* #313335 */
+    --foreground: 24 33% 94%;        /* #F5EDE8 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 0 0% 23%;
+    --card-foreground: 24 33% 94%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 0 0% 23%;
+    --popover-foreground: 24 33% 94%;
 
-    --primary: 142 71% 35%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 33 79% 62%;           /* #E8A250 amber gold */
+    --primary-foreground: 0 0% 20%;
 
-    --secondary: 210 20% 94%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 0 0% 27%;
+    --secondary-foreground: 24 33% 94%;
 
-    --muted: 210 20% 94%;
-    --muted-foreground: 222 20% 40%;
+    --muted: 0 0% 27%;
+    --muted-foreground: 24 15% 65%;
 
-    --accent: 142 71% 35%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 214 32% 85%;
-    --input: 214 32% 85%;
-    --ring: 142 71% 35%;
-
-    --radius: 0.5rem;
-    
-    /* Sage colors for light mode */
-    --sage: 142 71% 35%;
-    --sage-dark: 142 71% 30%;
-    --sage-light: 142 71% 45%;
-  }
-
-  .dark {
-    /* Dark mode - Slate & Sage */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 40% 14%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 40% 14%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 142 71% 45%;
-    --primary-foreground: 222 47% 11%;
-
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 142 71% 45%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 33 79% 62%;
+    --accent-foreground: 0 0% 20%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 24 33% 94%;
 
-    --border: 217 33% 22%;
-    --input: 217 33% 22%;
-    --ring: 142 71% 45%;
-    
-    /* Sage colors for dark mode */
-    --sage: 142 71% 45%;
-    --sage-dark: 142 71% 35%;
-    --sage-light: 142 71% 55%;
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+    --ring: 33 79% 62%;
+
+    --radius: 0.75rem;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans antialiased; }
+  html { scroll-behavior: smooth; }
 
   ::selection {
-    background: hsl(var(--sage) / 0.3);
+    background: hsl(33 79% 62% / 0.3);
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent;
-  }
-  
-  .section-padding {
-    @apply py-20 md:py-28 px-6;
-  }
-  
-  .container-narrow {
-    @apply max-w-4xl mx-auto;
-  }
-
-  /* Creative background patterns */
-  .bg-grid-pattern {
-    background-image: 
-      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
-    background-size: 50px 50px;
-  }
-
-  .bg-dots-pattern {
-    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
-    background-size: 20px 20px;
-  }
-
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, hsl(var(--sage) / 0.05) 0%, transparent 70%);
-  }
-
-  .bg-gradient-mesh {
-    background: 
-      radial-gradient(at 40% 20%, hsl(var(--sage) / 0.08) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, hsl(var(--primary) / 0.05) 0px, transparent 50%),
-      radial-gradient(at 0% 50%, hsl(var(--sage) / 0.06) 0px, transparent 50%),
-      radial-gradient(at 80% 50%, hsl(var(--primary) / 0.04) 0px, transparent 50%),
-      radial-gradient(at 0% 100%, hsl(var(--sage) / 0.07) 0px, transparent 50%);
-  }
-
-  /* Floating shapes */
-  .floating-shape {
-    @apply absolute rounded-full opacity-20 blur-3xl;
+  /* Subtle dot texture for dark sections */
+  .bg-dots-dark {
+    background-image: radial-gradient(rgba(245, 237, 232, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 }
 
-/* Carousel styles */
-/* Hide scrollbar for all browsers */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+/* ── Marquee animations ── */
+@keyframes marquee-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.embla {
-  overflow: hidden;
+@keyframes marquee-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
 }
 
-.embla__container {
-  display: flex;
-  gap: 1.5rem;
+.marquee-left {
+  animation: marquee-left 35s linear infinite;
 }
 
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
+.marquee-right {
+  animation: marquee-right 35s linear infinite;
 }
 
-@media (min-width: 768px) {
-  .embla__slide {
-    flex: 0 0 calc(50% - 0.75rem);
-  }
-}
-
-@media (min-width: 1024px) {
-  .embla__slide {
-    flex: 0 0 calc(33.333% - 1rem);
-  }
-}
-
-.embla__dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.embla__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: hsl(var(--border));
-  transition: all 0.3s;
-}
-
-.embla__dot--selected {
-  background: hsl(var(--sage));
-  width: 24px;
-  border-radius: 4px;
+/* Pause on hover */
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
 }

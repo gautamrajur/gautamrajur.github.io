@@ -1,129 +1,106 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, FileText } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { href: '#projects', label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#contact', label: 'Contact' },
+];
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 640) {
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const onResize = () => { if (window.innerWidth >= 768) setMobileOpen(false); };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
   }, []);
-
-  const navLinks = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
-  ];
-
-  const handleNavClick = () => {
-    setMobileMenuOpen(false);
-  };
 
   return (
-    <header className={cn(
-      'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-      scrolled 
-        ? 'bg-background/80 backdrop-blur-xl border-b border-border shadow-sm' 
-        : 'bg-transparent'
-    )}>
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="text-foreground font-serif font-bold text-xl md:text-2xl hover:text-primary transition-colors">
-          GR
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        scrolled
+          ? 'bg-[#313335]/95 backdrop-blur-md border-b border-white/10'
+          : 'bg-[#313335]'
+      )}
+    >
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Left: name + tagline */}
+        <a href="#" className="group">
+          <span className="font-serif text-white text-lg leading-tight block group-hover:text-[#E8A250] transition-colors">
+            Gautam Raju
+          </span>
+          <span className="text-white/60 text-[10px] font-mono tracking-[0.2em] uppercase">
+            Software Engineering · AI · Systems
+          </span>
         </a>
-        
-        {/* Desktop Navigation */}
-        <div className="hidden sm:flex items-center gap-4 md:gap-8">
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
+            <a
               key={link.href}
-              href={link.href} 
-              className="text-muted-foreground hover:text-primary transition-colors text-sm md:text-base font-medium"
+              href={link.href}
+              className="text-white/75 hover:text-white text-sm font-medium transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <ThemeToggle />
-          <a 
+          <a
             href="/Gautam_Raju_AI.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-secondary border border-border hover:border-primary hover:text-primary text-sm md:text-base font-medium transition-all"
+            className="px-5 py-2 border border-[#E8A250]/70 text-[#E8A250] text-sm font-medium rounded-full hover:bg-[#E8A250] hover:text-[#1C1C1E] transition-all"
           >
-            <FileText size={16} className="md:w-[18px] md:h-[18px]" />
             Resume
           </a>
-          <a 
-            href="mailto:raju.ga@northeastern.edu"
-            className="px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm md:text-base font-medium transition-all shadow-lg shadow-primary/20"
-          >
-            Get in touch
-          </a>
         </div>
-        
-        {/* Mobile Menu Button */}
-        <div className="sm:hidden flex items-center gap-2">
-          <ThemeToggle />
-          <button 
-            className="text-foreground p-2 hover:bg-secondary rounded-lg transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </nav>
-      
-      {/* Mobile Navigation */}
-      <div className={cn(
-        'sm:hidden bg-background/95 backdrop-blur-xl border-t border-border overflow-hidden transition-all duration-300',
-        mobileMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-      )}>
-        <div className="px-4 py-4 space-y-1">
+
+      {/* Mobile menu */}
+      <div
+        className={cn(
+          'md:hidden bg-[#313335] border-t border-white/10 overflow-hidden transition-all duration-300',
+          mobileOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+        )}
+      >
+        <div className="px-6 py-4 space-y-1">
           {navLinks.map((link) => (
-            <a 
+            <a
               key={link.href}
-              href={link.href} 
-              className="block text-foreground hover:text-primary hover:bg-secondary/50 transition-colors text-base font-medium py-3 px-3 rounded-lg"
-              onClick={handleNavClick}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              className="block text-white/85 hover:text-white text-base font-medium py-3 transition-colors"
             >
               {link.label}
             </a>
           ))}
-          <a 
+          <a
             href="/Gautam_Raju_AI.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-foreground hover:text-primary hover:bg-secondary/50 transition-colors text-base font-medium py-3 px-3 rounded-lg"
-            onClick={handleNavClick}
+            onClick={() => setMobileOpen(false)}
+            className="block text-[#E8A250] text-base font-medium py-3"
           >
-            <FileText size={18} />
-            Resume
-          </a>
-          <a 
-            href="mailto:raju.ga@northeastern.edu"
-            className="block text-primary text-base font-medium py-3 px-3"
-            onClick={handleNavClick}
-          >
-            Get in touch →
+            Resume ↗
           </a>
         </div>
       </div>
